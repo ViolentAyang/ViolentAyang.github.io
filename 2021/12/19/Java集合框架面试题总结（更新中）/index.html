@@ -1,0 +1,452 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/assets/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/assets/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/favicon-180x180.png?v=2.6.2" sizes="180x180"><link rel="mask-icon" href="/%5Bobject%20Object%5D?v=2.6.2" color="#54bcff"><meta name="msapplication-TileImage" content="/%5Bobject%20Object%5D"><meta name="msapplication-TileColor" content="#000000"><meta name="description" content="说出 collection 的常用子接口？说出 3 个以上的常 用方法？都有什么作用？       1. Collection具有两个比较常用的子接口，List和Set;2. Collection中的常用方法 1、添加 Boolean add(E e):在集合中添加一个对象，如果添加成功，返回true，如果失败，返回false Boolean addAll(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java集合框架面试题（更新中）">
+<meta property="og:url" content="https://violentayang.github.io/2021/12/19/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/index.html">
+<meta property="og:site_name" content="ViolentAyang">
+<meta property="og:description" content="说出 collection 的常用子接口？说出 3 个以上的常 用方法？都有什么作用？       1. Collection具有两个比较常用的子接口，List和Set;2. Collection中的常用方法 1、添加 Boolean add(E e):在集合中添加一个对象，如果添加成功，返回true，如果失败，返回false Boolean addAll(">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a896ef40e1e14042a6af1bfa4b279fd4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVmlvbGVudC1BeWFuZw==,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="article:published_time" content="2021-12-19T12:40:40.000Z">
+<meta property="article:modified_time" content="2021-12-19T13:48:07.896Z">
+<meta property="article:author" content="ViolentAyang">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="集合框架">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/a896ef40e1e14042a6af1bfa4b279fd4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVmlvbGVudC1BeWFuZw==,size_20,color_FFFFFF,t_70,g_se,x_16"><title>Java集合框架面试题（更新中） | ViolentAyang</title><link ref="canonical" href="https://violentayang.github.io/2021/12/19/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">Categories</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">Tags</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/about/"><span class="header-nav-menu-item__icon"><i class="fas fa-dragon"></i></span><span class="header-nav-menu-item__text">About</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">Search</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">ViolentAyang</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Java集合框架面试题（更新中）</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-12-19</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-12-19</span></span></div></header><div class="post-body">
+        <h2 id="说出-collection-的常用子接口？说出-3-个以上的常-用方法？都有什么作用？"   >
+          <a href="#说出-collection-的常用子接口？说出-3-个以上的常-用方法？都有什么作用？" class="heading-link"><i class="fas fa-link"></i></a><a href="#说出-collection-的常用子接口？说出-3-个以上的常-用方法？都有什么作用？" class="headerlink" title="说出 collection 的常用子接口？说出 3 个以上的常 用方法？都有什么作用？"></a>说出 collection 的常用子接口？说出 3 个以上的常 用方法？都有什么作用？</h2>
+      <p><strong>1. Collection具有两个比较常用的子接口，List和Set;</strong><br><strong>2. Collection中的常用方法</strong><br><img   src="https://img-blog.csdnimg.cn/a896ef40e1e14042a6af1bfa4b279fd4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVmlvbGVudC1BeWFuZw==,size_20,color_FFFFFF,t_70,g_se,x_16" style="width: image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,tepx;height: t_Q1NETiBAVmlvbGVudC1BeWFuZwpx;"  alt="在这里插入图片描述"></p>
+<p>1、添加</p>
+<p>Boolean add(E e):在集合中添加一个对象，如果添加成功，返回true，如果失败，返回false</p>
+<p>Boolean addAll(Collection&lt;?extend E&gt; e)：在集合中添加另一个集合，成功true,失败false;</p>
+<p>2、删除<br>Boolean remove(object obj):删除一个对象,会改变集合的长度</p>
+<p>Boolean removeAll(Colleciton con);删除一个集合，还有两个集合中相同的元素</p>
+<p>void clear():删除所有</p>
+<p>3、判断<br>Boolean contains(object obj):在集合中是否包含指定的对象</p>
+<p>Boolean containsAll(Collection con):在集合是否包含另一个集合</p>
+<p>Boolean isEmpty( )：判断集合是否为空</p>
+<p>4、获取</p>
+<p>int size( )：得到集合的尺寸大小      数组:length   字符串:length( );</p>
+<p>Iterator iterator( )：取出元素的方式。迭代器。该对象必须依赖于绝缘体容器，因为每一个容器的数据结构都不同。所以该迭代器对象是在容器中进行内部实现的，对于使用容器者而言，绝缘体的实现不重要，只要通过容器获取到该实现的迭代器的对象即可，也就是iterator方法，Iterator接口就是对所有的collection容器进行元素取出的公共接口。将每一个容器中的取出方式进行了封装，并对外暴露，这样无论是什么容器或者数据结构，只要内部取出方式实现了Iterator接口，都可以通过该接口取出这些容器中的元素。他的出现，将容器的取出方式和容器的数据结构相分离，降低了耦合性，而取出方式因为直接在访问容器的元素，并依赖具体的数据结构，所以被定义在了容器中。通过内部类来实现Iterator接口。</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Collection c = <span class="keyword">new</span> ArrayList();</span><br><span class="line"></span><br><span class="line">c.add(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"></span><br><span class="line">Iteratot it = c.iterator();<span class="comment">//返回的是Iterator的子类对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line"></span><br><span class="line">String str = (String)it.next();</span><br><span class="line"></span><br><span class="line">System.out.println(str);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>for(object obj:con)用于数组和集合(高级for循环)</p>
+<p>注意：迭代要强转，只能有一个next( )方法，否则会有NoSuchElementException异常。</p>
+<p>5、交集</p>
+<p>boolean retainAll(Collection c)：返回两个集合的交集元素，删除其他元素，功能和removeAll相反。有A,B两个集合，做完交集后，A集合中的元素发生变化，取得是A和B相同的元素，B不变化。boolean值的问题——–&gt;只要A集合变化,那么返回true.否则false</p>
+<p>6、集合转数组</p>
+<p>Object[ ] toArray()：把集合转换成对象。</p>
+
+        <h2 id="如果向-TreeSet-中加入类对象，需要做什么？"   >
+          <a href="#如果向-TreeSet-中加入类对象，需要做什么？" class="heading-link"><i class="fas fa-link"></i></a><a href="#如果向-TreeSet-中加入类对象，需要做什么？" class="headerlink" title="如果向 TreeSet 中加入类对象，需要做什么？"></a>如果向 TreeSet 中加入类对象，需要做什么？</h2>
+      <p>实现Comparable接口重写compareTo方法或者在TreesSet创建对象时传入自定义的比较类</p>
+
+        <h2 id="Set-里的元素是不能重复的，那么用什么方法来区分重复与否呢-是用-还是-equals-它们有何区别"   >
+          <a href="#Set-里的元素是不能重复的，那么用什么方法来区分重复与否呢-是用-还是-equals-它们有何区别" class="heading-link"><i class="fas fa-link"></i></a><a href="#Set-里的元素是不能重复的，那么用什么方法来区分重复与否呢-是用-还是-equals-它们有何区别" class="headerlink" title="Set 里的元素是不能重复的，那么用什么方法来区分重复与否呢? 是用==还是 equals()? 它们有何区别?"></a>Set 里的元素是不能重复的，那么用什么方法来区分重复与否呢? 是用==还是 equals()? 它们有何区别?</h2>
+      <p>从它俩的区别谈起，==是用来判断两者是否是同一对象（同一事物），而equals是用来判断是否引用同一个对象。再看一下Set里面存的是</p>
+<p>对象，还是对象的引用。根据java的存储机制可知，set里面存放的是对象的引用，所以当两个元素只要满足了equals()时就已经指向同一个对象，</p>
+<p>也就出现了重复元素。所以应该用equals()来判断。</p>
+
+        <h2 id="ArrayList-和-Vector-的区别？"   >
+          <a href="#ArrayList-和-Vector-的区别？" class="heading-link"><i class="fas fa-link"></i></a><a href="#ArrayList-和-Vector-的区别？" class="headerlink" title="ArrayList 和 Vector 的区别？"></a>ArrayList 和 Vector 的区别？</h2>
+      <p>1.ArrayList是线程不安全的，Vector是线程安全的<br>2.ArrayList扩容是原来一半，Vector是原来的一倍</p>
+
+        <h2 id="集合当中能存放基本数据类型的数据吗？"   >
+          <a href="#集合当中能存放基本数据类型的数据吗？" class="heading-link"><i class="fas fa-link"></i></a><a href="#集合当中能存放基本数据类型的数据吗？" class="headerlink" title="集合当中能存放基本数据类型的数据吗？"></a>集合当中能存放基本数据类型的数据吗？</h2>
+      <p>Java集合不能存放基本数据类型，只能存放对象的引用。</p>
+<p>每个集合元素都是一个引用变量，实际内容都存放在堆内或方法区里面，</p>
+<p>但是基本数据类型是在栈内存上分配空间的，栈上的数据随时会被收回。</p>
+<p>如何解决？</p>
+<p>可以通过包装类，把基本数据类型转化为对象类型，存放引用。</p>
+<p>更方便的，由于有了自动拆箱和装箱功能，基本数据类型和其对应对象</p>
+<p>之间的转换变得很方便，把基本数据类型存入集合中可以自动存，系统</p>
+<p>会自动将其装箱成封装类，然后将其加入到集合当中。</p>
+
+        <h2 id="ArrayList-与数组的区别"   >
+          <a href="#ArrayList-与数组的区别" class="heading-link"><i class="fas fa-link"></i></a><a href="#ArrayList-与数组的区别" class="headerlink" title="ArrayList 与数组的区别?"></a>ArrayList 与数组的区别?</h2>
+      <p>Array可以包含基本类型和对象类型，ArrayList只能包含对象类型。</p>
+<p>Array大小是固定的，ArrayList的大小是动态变化的。</p>
+
+        <h2 id="java-集合框架的四种主要接口是"   >
+          <a href="#java-集合框架的四种主要接口是" class="heading-link"><i class="fas fa-link"></i></a><a href="#java-集合框架的四种主要接口是" class="headerlink" title="java 集合框架的四种主要接口是"></a>java 集合框架的四种主要接口是</h2>
+      <p>Collection：存储无序的、不唯一的数据；其下有List和Set两大接口。</p>
+<p>List：存储有序的、不唯一的数据；</p>
+<p>Set：存储无序的、唯一的数据；</p>
+<p>Map：以键值对的形式存储数据，以键取值。键不能重复，但值可以重复。</p>
+
+        <h2 id="HashMap-和-Hashtable-的区别"   >
+          <a href="#HashMap-和-Hashtable-的区别" class="heading-link"><i class="fas fa-link"></i></a><a href="#HashMap-和-Hashtable-的区别" class="headerlink" title="HashMap 和 Hashtable 的区别?"></a>HashMap 和 Hashtable 的区别?</h2>
+      <p>1 HashMap不是线程安全的</p>
+<p>HashMap是map接口的子类，是将键映射到值的对象，其中键和值都是对象，并且不能包含重复键，但可以包含重复值。HashMap允许null key和null value，而hashtable不允许。</p>
+<p>2   HashTable是线程安全。</p>
+<p>HashMap是Hashtable的轻量级实现（非线程安全的实现），他们都完成了Map接口，主要区别在于HashMap允许空（null）键值（key）,由于非线程安全，效率上可能高于Hashtable。</p>
+<p>HashMap允许将null作为一个entry的key或者value，而Hashtable不允许。 HashMap把Hashtable的contains方法去掉了，改成containsvalue和containsKey。因为contains方法容易让人引起误解。 Hashtable继承自Dictionary类，而HashMap是Java1.2引进的Map interface的一个实现。 最大的不同是，Hashtable的方法是Synchronize的，而HashMap不是，在多个线程访问Hashtable时，不需要自己为它的方法实现同步，而HashMap 就必须为之提供外同步。 Hashtable和HashMap采用的hash/rehash算法都大概一样，所以性能不会有很大的差</p>
+
+        <h2 id="Collection-框架中实现比较方法"   >
+          <a href="#Collection-框架中实现比较方法" class="heading-link"><i class="fas fa-link"></i></a><a href="#Collection-框架中实现比较方法" class="headerlink" title="Collection 框架中实现比较方法"></a>Collection 框架中实现比较方法</h2>
+      <p>Java集合框架中需要比较大小的集合包括TreeMap、TreeSet，其中TreeMap会根据key-value对中key的大小进行排序，而TreeSet则会对集合元素进行排序。<br>因此TreeMap的key、TreeSet的集合元素，都需要可以比较大小。集合框架中之比较大小的有两种方式：</p>
+<p>A．自然排序：对于自然排序来说，要求TreeMap中的所有key都实现Comparable接口，实现该接口时需要实现一个int compareTo(T o)方法，用于判断当前对象与o对象之间的大小关系。如果该方法返回正整数，则说明当前对象大于o对象；如果该方法返回0，说明两个对象相等；如果该方法返回负整数，则说明当前对象小于o对象；JDK的很多类都已经实现了Comparable接口，例如String、Date、BigDecimal等。</p>
+<p>B．定制排序：定制排序需要在创建TreeMap或TreeSet时传入一个Comparator对象，此时TreeMap或TreeSet不再要求key、集合元素本身是可比较大小的，而是由Comparator来负责比较集合元素的大小。Comparator本身只是一个接口，因此创建Comparator对象只能是创建它的实现类的对象，Comparator的实现类需要实现int compare(T o1, T o2)方法，该方法用于判断o1、o2两个对象的大小，如果该方法返回正整数，则说明o1大于o2、如果该方法返回负整数，则说明o1小于o2、如果返回0，则说明两个对象相等。</p>
+
+        <h2 id="在-Java-中，HashMap-中是用哪些方法来解决哈希冲突的？"   >
+          <a href="#在-Java-中，HashMap-中是用哪些方法来解决哈希冲突的？" class="heading-link"><i class="fas fa-link"></i></a><a href="#在-Java-中，HashMap-中是用哪些方法来解决哈希冲突的？" class="headerlink" title="在 Java 中，HashMap 中是用哪些方法来解决哈希冲突的？"></a>在 Java 中，HashMap 中是用哪些方法来解决哈希冲突的？</h2>
+      <p><strong>解决哈希冲突的方法有三种,分别是:</strong></p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">```再散列法(二次哈希法)```:再次使用一个不同的哈希算法再计算一次 (第一次%16换另一个数进行%运算)</span><br><span class="line">```链地址法(拉链法)```:将所有冲突元素按照链表存储,冲突后时间复杂度变为O(1+n)n为冲突元素个数)[hashMap就是用这种方法]</span><br><span class="line"></span><br><span class="line">**首先来了解一下什么是哈希表**</span><br><span class="line"></span><br><span class="line">哈希表是以(Key,Value):数值的形式存储数据的</span><br><span class="line"></span><br><span class="line">根据相应的哈希算法计算key,返回值即为V存储的数组下标</span><br><span class="line"></span><br><span class="line">哈希算法:f(K) --- . int即为V需要存储的数组下标</span><br><span class="line"></span><br><span class="line">**为什么会造成哈希冲突呢?**</span><br><span class="line"></span><br><span class="line">用一个数去模运算,取得余数就是所要存储数组数据的下标,但是余数可能会存在一样的,这样就导致一样余数的户数无处存储,所以就造成了哈希冲突.</span><br><span class="line"></span><br><span class="line">**哈希冲突解决思路:**</span><br><span class="line"></span><br><span class="line">哈希算法计算的两个不同对象的哈希值相等的情况</span><br><span class="line"></span><br><span class="line">&gt; eg:1 % 16 == 17 % 16[1和17是不同的key值]---&gt;就是哈希冲突了</span><br><span class="line"></span><br><span class="line">HashMap中用链地址法来解决 </span><br><span class="line"></span><br><span class="line">HashMap源码解析(负载因子,树化策略,内部hash实现,resize策略...)</span><br><span class="line">HashMap中的内部属性:</span><br><span class="line"></span><br><span class="line">负载因子:final loadFactor (默认为0.75f)</span><br><span class="line">实际容量: int threshold = loadFactor * tab.length</span><br><span class="line">树化阈值:int TREEIFY_THRESHOLD = 8;</span><br><span class="line">解除树化阈值: int UNTREEIFY_THRESHOLD = 6;</span><br><span class="line">HashMap也采用了懒加载策略,第一次put时初始化哈希表</span><br><span class="line">树化逻辑:索引下标对应的链表长度达到阈值8并且当前哈希表长度达到64才不会树化,否则只是调用resize()方法进行哈希表扩容</span><br><span class="line">resize();扩容为原先数组的2倍</span><br><span class="line">负载因子大小怎么决定?</span><br><span class="line"></span><br><span class="line">负载因子过大会导致哈希冲突明显增加,节省内存</span><br><span class="line"></span><br><span class="line">负载因子过小会导致哈希表频繁扩容,内存利用率低</span><br><span class="line"></span><br><span class="line"> 默认0.75,0.75是一个经过计算得出的值,即能保证哈希冲突不会太严重也能保证效率不会太低</span><br><span class="line"></span><br><span class="line">源码: </span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">public V put(K key, V value) &#123;</span><br><span class="line">    return putVal(hash(key), key, value, false, true);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">static final int hash(Object key) &#123;</span><br><span class="line">    int h;</span><br><span class="line">    return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>可以发现源码中并没有直接使用Object中的hashCode方法,而是再让h无符号右移了16位</p>
+<p>为何不直接使用Object提供的hashCode?</p>
+<p>为了将哈希码保留一半,将高低位都参与运算,减少内存开销,减少哈希冲突</p>
+<p>直接使用会造成空间浪费</p>
+<p>(h = key.hashCode()) ^ (h &gt;&gt;&gt; 16); //32 —&gt;16 保留一半(原本32右移16位去掉了一半)</p>
+<p>put内部逻辑:</p>
+<p>1.哈希表索引下标计算:</p>
+<p>i = (n-1) &amp; hash   //与运算</p>
+<p>保证求出的索引下标都在哈希表的长度范围之内</p>
+<p>2.n为哈希表的长度</p>
+<p>n必须为2 的n次方,保证哈希表中的所有索引下标都会被访问到</p>
+<p>若n=15,则以下位置永远不可能存储元素</p>
+<p>0011,0101,1001,1011,1101,1111</p>
+<p>接下来再看源码:</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">final</span> V <span class="title">putVal</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">boolean</span> onlyIfAbsent,</span></span></span><br><span class="line"><span class="params"><span class="function">               <span class="keyword">boolean</span> evict)</span> </span>&#123;</span><br><span class="line">    Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; <span class="keyword">int</span> n, i;</span><br><span class="line"><span class="comment">//第一次put值的时候将哈希表初始化</span></span><br><span class="line"><span class="comment">//resize():1,完成哈希表的初始化  2.完成哈希表的扩容</span></span><br><span class="line">    <span class="keyword">if</span> ((tab = table) == <span class="keyword">null</span> || (n = tab.length) == <span class="number">0</span>)</span><br><span class="line">        n = (tab = resize()).length;</span><br><span class="line"><span class="comment">//当目标索引未存储元素时,将当前元素存储到目标索引位置</span></span><br><span class="line">    <span class="keyword">if</span> ((p = tab[i = (n - <span class="number">1</span>) &amp; hash]) == <span class="keyword">null</span>)</span><br><span class="line">        tab[i] = newNode(hash, key, value, <span class="keyword">null</span>);</span><br><span class="line"><span class="comment">//哈希表已经初始化并且算出的数据下标已经有元素了</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        Node&lt;K,V&gt; e; K k;</span><br><span class="line"><span class="comment">//若索引下标对应的元素key值恰好与当前元素key值相等且不为空,</span></span><br><span class="line"><span class="comment">//将value替换为当前元素的value</span></span><br><span class="line">        <span class="keyword">if</span> (p.hash == hash &amp;&amp;</span><br><span class="line">            ((k = p.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">            e = p;</span><br><span class="line"><span class="comment">//此时索引对应的链表已经树化了,采用红黑树方式将当前节点添加到树中</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">            e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(<span class="keyword">this</span>, tab, hash, key, value);</span><br><span class="line"><span class="comment">//以链表方式将当前节点添加到链表末尾</span></span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> binCount = <span class="number">0</span>; ; ++binCount) &#123; <span class="comment">//binCount当前链表的长度</span></span><br><span class="line">                <span class="keyword">if</span> ((e = p.next) == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    p.next = newNode(hash, key, value, <span class="keyword">null</span>);</span><br><span class="line">                    <span class="keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - <span class="number">1</span>) <span class="comment">// -1 for 1st</span></span><br><span class="line">                        <span class="comment">//尝试将链表树化</span></span><br><span class="line">                        treeifyBin(tab, hash);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                    ((k = e.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                p = e;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (e != <span class="keyword">null</span>) &#123; <span class="comment">// existing mapping for key</span></span><br><span class="line">            V oldValue = e.value;</span><br><span class="line">            <span class="keyword">if</span> (!onlyIfAbsent || oldValue == <span class="keyword">null</span>)</span><br><span class="line">                e.value = value;</span><br><span class="line">            afterNodeAccess(e);</span><br><span class="line">            <span class="keyword">return</span> oldValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ++modCount;</span><br><span class="line"><span class="comment">//扩容策略</span></span><br><span class="line"><span class="comment">//此时添加了新节点</span></span><br><span class="line">    <span class="keyword">if</span> (++size &gt; threshold)</span><br><span class="line">        <span class="comment">//扩容</span></span><br><span class="line">        resize();</span><br><span class="line">    afterNodeInsertion(evict);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h2 id="为何HashMap中JDK1-8要引入红黑树"   >
+          <a href="#为何HashMap中JDK1-8要引入红黑树" class="heading-link"><i class="fas fa-link"></i></a><a href="#为何HashMap中JDK1-8要引入红黑树" class="headerlink" title="为何HashMap中JDK1.8要引入红黑树?"></a>为何HashMap中JDK1.8要引入红黑树?</h2>
+      <p>当链表长度过长时,会将哈希表查找的时间复杂度退化为O(n),树化会保证即便在哈希冲突严重时,查找的时间复杂度也为O(logn)</p>
+<p>当红黑树结点个数在扩容或者删除元素时减少为6以下,在下次resize()过程中会将红黑树退化为链表,节省空间</p>
+
+        <h2 id="Collection-和-Collections-的区别"   >
+          <a href="#Collection-和-Collections-的区别" class="heading-link"><i class="fas fa-link"></i></a><a href="#Collection-和-Collections-的区别" class="headerlink" title="Collection 和 Collections 的区别?"></a>Collection 和 Collections 的区别?</h2>
+      <p>1、Collection 是一个集合接口。它提供了对集合对象进行基本操作的通用接口方法。Collection接口在Java 类库中有很多具体的实现。Collection接口的意义是为各种具体的集合提供了最大化的统一操作方式。<br>2、Collections 是一个包装类。它包含有各种有关集合操作的静态多态方法。此类不能实例化，就像一个工具类，服务于Java的Collection框架。</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="https://violentayang.github.io">ViolentAyang</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="https://violentayang.github.io/2021/12/19/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/">https://violentayang.github.io/2021/12/19/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://violentayang.github.io/tags/Java/">Java</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://violentayang.github.io/tags/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">集合框架</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2021/12/19/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">Java多线程</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2021/12/19/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"><span class="paginator-prev__text">Java网络编程</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="gitalk-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E5%87%BA-collection-%E7%9A%84%E5%B8%B8%E7%94%A8%E5%AD%90%E6%8E%A5%E5%8F%A3%EF%BC%9F%E8%AF%B4%E5%87%BA-3-%E4%B8%AA%E4%BB%A5%E4%B8%8A%E7%9A%84%E5%B8%B8-%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9F%E9%83%BD%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">
+          说出 collection 的常用子接口？说出 3 个以上的常 用方法？都有什么作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E5%90%91-TreeSet-%E4%B8%AD%E5%8A%A0%E5%85%A5%E7%B1%BB%E5%AF%B9%E8%B1%A1%EF%BC%8C%E9%9C%80%E8%A6%81%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">
+          如果向 TreeSet 中加入类对象，需要做什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set-%E9%87%8C%E7%9A%84%E5%85%83%E7%B4%A0%E6%98%AF%E4%B8%8D%E8%83%BD%E9%87%8D%E5%A4%8D%E7%9A%84%EF%BC%8C%E9%82%A3%E4%B9%88%E7%94%A8%E4%BB%80%E4%B9%88%E6%96%B9%E6%B3%95%E6%9D%A5%E5%8C%BA%E5%88%86%E9%87%8D%E5%A4%8D%E4%B8%8E%E5%90%A6%E5%91%A2-%E6%98%AF%E7%94%A8-%E8%BF%98%E6%98%AF-equals-%E5%AE%83%E4%BB%AC%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB"><span class="toc-number">3.</span> <span class="toc-text">
+          Set 里的元素是不能重复的，那么用什么方法来区分重复与否呢? 是用&#x3D;&#x3D;还是 equals()? 它们有何区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList-%E5%92%8C-Vector-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">
+          ArrayList 和 Vector 的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E5%BD%93%E4%B8%AD%E8%83%BD%E5%AD%98%E6%94%BE%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%90%97%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">
+          集合当中能存放基本数据类型的数据吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList-%E4%B8%8E%E6%95%B0%E7%BB%84%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">6.</span> <span class="toc-text">
+          ArrayList 与数组的区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E7%9A%84%E5%9B%9B%E7%A7%8D%E4%B8%BB%E8%A6%81%E6%8E%A5%E5%8F%A3%E6%98%AF"><span class="toc-number">7.</span> <span class="toc-text">
+          java 集合框架的四种主要接口是</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HashMap-%E5%92%8C-Hashtable-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">8.</span> <span class="toc-text">
+          HashMap 和 Hashtable 的区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Collection-%E6%A1%86%E6%9E%B6%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%AF%94%E8%BE%83%E6%96%B9%E6%B3%95"><span class="toc-number">9.</span> <span class="toc-text">
+          Collection 框架中实现比较方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8-Java-%E4%B8%AD%EF%BC%8CHashMap-%E4%B8%AD%E6%98%AF%E7%94%A8%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%E6%9D%A5%E8%A7%A3%E5%86%B3%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81%E7%9A%84%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">
+          在 Java 中，HashMap 中是用哪些方法来解决哈希冲突的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BD%95HashMap%E4%B8%ADJDK1-8%E8%A6%81%E5%BC%95%E5%85%A5%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="toc-number">11.</span> <span class="toc-text">
+          为何HashMap中JDK1.8要引入红黑树?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Collection-%E5%92%8C-Collections-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">12.</span> <span class="toc-text">
+          Collection 和 Collections 的区别?</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/touxiang.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">听闻广陵不知寒，大雪龙骑下江南</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://plus.google.com/" target="_blank" rel="noopener" data-popover="Google" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-google"></i></span></a><a class="sidebar-ov-social-item" href="https://youtube.com/" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a><a class="sidebar-ov-social-item" href="1972076517" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">33</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">5</div><div class="sidebar-ov-state-item__name">Categories</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">18</div><div class="sidebar-ov-state-item__name">Tags</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>ViolentAyang</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.4.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="Search for Posts (Support multiple keywords)"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ Untitled ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', 'Please enter characters');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-md5@latest/src/md5.min.js"></script><script>function loadGitalk () {
+  if (!document.getElementById('gitalk-container')) {
+    return;
+  }
+
+  var gitalk = new Gitalk({
+    id: md5(window.location.pathname.slice(1)),
+    clientID: '3f68bfc5e0813f207de0',
+    clientSecret: 'fd9d89e96efa252fbd10843c87b520687f85fb35',
+    repo: 'ViolentAyang.github.io',
+    owner: 'ViolentAyang',
+    admin: ['ViolentAyang'],
+    distractionFreeMode: 'true',
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
+}
+
+if (false) {
+  loadGitalk();
+} else {
+  window.addEventListener('DOMContentLoaded', loadGitalk, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script></body></html>
