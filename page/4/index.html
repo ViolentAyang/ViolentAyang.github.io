@@ -35,98 +35,107 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 <p>对任何一个正整数 <em>n</em>，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把 (3<em>n</em>+1) 砍掉一半。这样一直反复砍下去，最后一定在某一步得到 <em>n</em>=1。卡拉兹在 1950 年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证 (3<em>n</em>+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展……</p>
 <p>我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过 1000 的正整数 <em>n</em>，简单地数一下，需要多少步（砍几下）才能得到 <em>n</em>=1？</p>
 
-        <h3 id="输入格式："   >
-          <a href="#输入格式：" class="heading-link"><i class="fas fa-link"></i></a><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3>
-      <p>每个测试输入包含 1 个测试用例，即给出正整数 <em>n</em> 的值。</p>
+        <h3 id="输入格式"   >
+          <a href="#输入格式" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#输入格式"></a> 输入格式：</h3>
+      
+<p>每个测试输入包含 1 个测试用例，即给出正整数 <em>n</em> 的值。</p>
 
-        <h3 id="输出格式："   >
-          <a href="#输出格式：" class="heading-link"><i class="fas fa-link"></i></a><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3>
-      <p>输出从 <em>n</em> 计算到 1 需要的步数。</p>
+        <h3 id="输出格式"   >
+          <a href="#输出格式" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#输出格式"></a> 输出格式：</h3>
+      
+<p>输出从 <em>n</em> 计算到 1 需要的步数。</p>
 
-        <h3 id="输入样例："   >
-          <a href="#输入样例：" class="heading-link"><i class="fas fa-link"></i></a><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3>
-      <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line"></span><br><span class="line">结尾无空行</span><br></pre></td></tr></table></div></figure>
+        <h3 id="输入样例"   >
+          <a href="#输入样例" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#输入样例"></a> 输入样例：</h3>
+      
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line"></span><br><span class="line">结尾无空行</span><br></pre></td></tr></table></div></figure>
 
+        <h3 id="输出样例"   >
+          <a href="#输出样例" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#输出样例"></a> 输出样例：</h3>
+      
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line"></span><br><span class="line">结尾无空行</span><br></pre></td></tr></table></div></figure>
 
-        <h3 id="输出样例："   >
-          <a href="#输出样例：" class="heading-link"><i class="fas fa-link"></i></a><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3>
-      <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line"></span><br><span class="line">结尾无空行</span><br></pre></td></tr></table></div></figure>
-
-
-        <h3 id="题解："   >
-          <a href="#题解：" class="heading-link"><i class="fas fa-link"></i></a><a href="#题解：" class="headerlink" title="题解："></a>题解：</h3>
-      <figure class="highlight c"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,count=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">while</span>(n&gt;<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n%<span class="number">2</span>!=<span class="number">0</span>)&#123;</span><br><span class="line">            n = (<span class="number">3</span>*n + <span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            n = n/<span class="number">2</span>;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,count);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
-
+        <h3 id="题解"   >
+          <a href="#题解" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h3>
+      
+<figure class="highlight c"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,count=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">while</span>(n&gt;<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n%<span class="number">2</span>!=<span class="number">0</span>)&#123;</span><br><span class="line">            n = (<span class="number">3</span>*n + <span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            n = n/<span class="number">2</span>;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,count);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/12/13/python%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">python刷题笔记</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-12-13</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-12-16</span></span></div></header><div class="post-body"><div class="post-excerpt">
         <h1 id="对字典按照值的顺序排序"   >
-          <a href="#对字典按照值的顺序排序" class="heading-link"><i class="fas fa-link"></i></a><a href="#对字典按照值的顺序排序" class="headerlink" title="对字典按照值的顺序排序"></a>对字典按照值的顺序排序</h1>
-      <figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">&quot;red&quot;</span>:<span class="number">5</span>,<span class="string">&quot;or&quot;</span>:<span class="number">6</span>&#125;</span><br><span class="line">new_dic = <span class="built_in">sorted</span>(dic.items(),key= <span class="keyword">lambda</span> x:x[<span class="number">1</span>],reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></div></figure>
-
+          <a href="#对字典按照值的顺序排序" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#对字典按照值的顺序排序"></a> 对字典按照值的顺序排序</h1>
+      
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">&quot;red&quot;</span>:<span class="number">5</span>,<span class="string">&quot;or&quot;</span>:<span class="number">6</span>&#125;</span><br><span class="line">new_dic = <span class="built_in">sorted</span>(dic.items(),key= <span class="keyword">lambda</span> x:x[<span class="number">1</span>],reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></div></figure>
 <p><font color = "pink">注意：变成列表嵌套元祖，需要进行解包操作</font></p>
 
         <h1 id="如何对元祖进行解包"   >
-          <a href="#如何对元祖进行解包" class="heading-link"><i class="fas fa-link"></i></a><a href="#如何对元祖进行解包" class="headerlink" title="如何对元祖进行解包"></a>如何对元祖进行解包</h1>
-      <p><font color = "orange">一对一解包：</font></p>
+          <a href="#如何对元祖进行解包" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#如何对元祖进行解包"></a> 如何对元祖进行解包</h1>
+      
+<p><font color = "orange">一对一解包：</font></p>
 <figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result_n,result_num = dic[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(result_n)</span><br></pre></td></tr></table></div></figure>
-
 <p>这样既可取出两个元素元祖内的两个元素</p>
 
         <h1 id="删除字符串中的字符"   >
-          <a href="#删除字符串中的字符" class="heading-link"><i class="fas fa-link"></i></a><a href="#删除字符串中的字符" class="headerlink" title="删除字符串中的字符"></a>删除字符串中的字符</h1>
-      <p><strong>删除字符串两端或一段的多种字符</strong></p>
+          <a href="#删除字符串中的字符" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#删除字符串中的字符"></a> 删除字符串中的字符</h1>
+      
+<p><strong>删除字符串两端或一段的多种字符</strong></p>
 <p>list.strip(字符):删除字符串两端的一种或多种字符</p>
 <figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;abbbmmmcccaaabb&quot;</span></span><br><span class="line">s1 = s.strip(<span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(s1) <span class="comment">#mmm</span></span><br></pre></td></tr></table></div></figure>
-
 <p>list.lstrip(字符)：删除字符串左端的一种或多种字符</p>
 <p>list.rstrip(字符)：删除字符串右端的一种或多种字符</p>
-<p>str.replace(被替换的字符,”)</p>
+<p>str.replace(被替换的字符,&quot;)</p>
 <figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&#x27;abc:abc&#x27;</span></span><br><span class="line">s1 = s.replace(<span class="string">&#x27;:&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(s1) <span class="comment">#abcabc</span></span><br></pre></td></tr></table></div></figure>
 
-
         <h1 id="enumerate遍历列表同时获取元素及下表"   >
-          <a href="#enumerate遍历列表同时获取元素及下表" class="heading-link"><i class="fas fa-link"></i></a><a href="#enumerate遍历列表同时获取元素及下表" class="headerlink" title="enumerate遍历列表同时获取元素及下表"></a>enumerate遍历列表同时获取元素及下表</h1>
-      <figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i,item <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="type">List</span>):</span><br><span class="line">    <span class="built_in">print</span>(i,item)</span><br></pre></td></tr></table></div></figure>
-
+          <a href="#enumerate遍历列表同时获取元素及下表" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#enumerate遍历列表同时获取元素及下表"></a> enumerate遍历列表同时获取元素及下表</h1>
+      
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i,item <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="type">List</span>):</span><br><span class="line">    <span class="built_in">print</span>(i,item)</span><br></pre></td></tr></table></div></figure>
 
         <h1 id="强制退出python程序"   >
-          <a href="#强制退出python程序" class="heading-link"><i class="fas fa-link"></i></a><a href="#强制退出python程序" class="headerlink" title="强制退出python程序"></a>强制退出python程序</h1>
-      <p>需要在内循环里结束两个循环时，可以用强制退出程序</p>
+          <a href="#强制退出python程序" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#强制退出python程序"></a> 强制退出python程序</h1>
+      
+<p>需要在内循环里结束两个循环时，可以用强制退出程序</p>
 <figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">chouma,cishu = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line">d = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(cishu):</span><br><span class="line">    n1,b,t,n2 = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line">    <span class="keyword">if</span> chouma &gt;= t:</span><br><span class="line">        <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> n2&lt;n1:</span><br><span class="line">                chouma += t</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&#x27;Win &#123;&#125;!  Total = &#123;&#125;.&#x27;</span>.<span class="built_in">format</span>(t,chouma))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                chouma -= t</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&#x27;Lose &#123;&#125;.  Total = &#123;&#125;.&#x27;</span>.<span class="built_in">format</span>(t,chouma))</span><br><span class="line">                <span class="keyword">if</span> chouma == <span class="number">0</span>:</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">&#x27;Game Over.&#x27;</span>)</span><br><span class="line">                    sys.exit()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> n2&gt;n1:</span><br><span class="line">                chouma += t</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&#x27;Win &#123;&#125;!  Total = &#123;&#125;.&#x27;</span>.<span class="built_in">format</span>(t,chouma))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                chouma -= t</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&#x27;Lose &#123;&#125;.  Total = &#123;&#125;.&#x27;</span>.<span class="built_in">format</span>(t,chouma))</span><br><span class="line">                <span class="keyword">if</span> chouma == <span class="number">0</span>:</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">&#x27;Game Over.&#x27;</span>)</span><br><span class="line">                    sys.exit()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Not enough tokens.  Total = &#123;&#125;.&#x27;</span>.<span class="built_in">format</span>(chouma))</span><br></pre></td></tr></table></div></figure>
-
 <p>导入sys包 sys.exit()</p>
 
         <h1 id="不足位数补零"   >
-          <a href="#不足位数补零" class="heading-link"><i class="fas fa-link"></i></a><a href="#不足位数补零" class="headerlink" title="不足位数补零"></a>不足位数补零</h1>
-      <p><strong>Python zfill() 方法返回指定长度的字符串，原字符串右对齐，前面填充0。</strong><br><strong>Python rjust() 返回一个原字符串右对齐,并使用空格填充至长度 width 的新字符串。如果指定的长度小于字符串的长度则返回原字符串。</strong></p>
-<p><font color="orange">zfill()方法语法：</font><br>str.zfill(width)<br>width – 指定字符串的长度。原字符串右对齐，前面填充0。</p>
-<p><font color="orange">rjust()方法语法：</font><br>str.rjust(width[, fillchar])<br>width – 指定填充指定字符后中字符串的总长度.<br>fillchar – 填充的字符，默认为空格。</p>
+          <a href="#不足位数补零" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#不足位数补零"></a> 不足位数补零</h1>
+      
+<p><strong>Python zfill() 方法返回指定长度的字符串，原字符串右对齐，前面填充0。</strong><br />
+<strong>Python rjust() 返回一个原字符串右对齐,并使用空格填充至长度 width 的新字符串。如果指定的长度小于字符串的长度则返回原字符串。</strong></p>
+<p><font color="orange">zfill()方法语法：</font><br />
+str.zfill(width)<br />
+width – 指定字符串的长度。原字符串右对齐，前面填充0。</p>
+<p><font color="orange">rjust()方法语法：</font><br />
+str.rjust(width[, fillchar])<br />
+width – 指定填充指定字符后中字符串的总长度.<br />
+fillchar – 填充的字符，默认为空格。</p>
 </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/12/13/hello-world/">Hello World</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-12-13</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-12-13</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Welcome to <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>! This is your very first post. Check <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> or you can ask me on <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
 
-        <h2 id="Quick-Start"   >
-          <a href="#Quick-Start" class="heading-link"><i class="fas fa-link"></i></a><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
+        <h2 id="quick-start"   >
+          <a href="#quick-start" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
       
-        <h3 id="Create-a-new-post"   >
-          <a href="#Create-a-new-post" class="heading-link"><i class="fas fa-link"></i></a><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3>
-      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></div></figure>
 
+        <h3 id="create-a-new-post"   >
+          <a href="#create-a-new-post" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3>
+      
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></div></figure>
 <p>More info: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 
-        <h3 id="Run-server"   >
-          <a href="#Run-server" class="heading-link"><i class="fas fa-link"></i></a><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3>
-      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></div></figure>
-
+        <h3 id="run-server"   >
+          <a href="#run-server" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3>
+      
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></div></figure>
 <p>More info: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 
-        <h3 id="Generate-static-files"   >
-          <a href="#Generate-static-files" class="heading-link"><i class="fas fa-link"></i></a><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3>
-      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></div></figure>
-
+        <h3 id="generate-static-files"   >
+          <a href="#generate-static-files" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3>
+      
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></div></figure>
 <p>More info: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 
-        <h3 id="Deploy-to-remote-sites"   >
-          <a href="#Deploy-to-remote-sites" class="heading-link"><i class="fas fa-link"></i></a><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3>
-      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></div></figure>
-
+        <h3 id="deploy-to-remote-sites"   >
+          <a href="#deploy-to-remote-sites" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3>
+      
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></div></figure>
 <p>More info: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 </div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/touxiang.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">听闻广陵不知寒，大雪龙骑下江南</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://plus.google.com/" target="_blank" rel="noopener" data-popover="Google" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-google"></i></span></a><a class="sidebar-ov-social-item" href="https://youtube.com/" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a><a class="sidebar-ov-social-item" href="1972076517" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">33</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">5</div><div class="sidebar-ov-state-item__name">Categories</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">18</div><div class="sidebar-ov-state-item__name">Tags</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>ViolentAyang</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.4.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="Search for Posts (Support multiple keywords)"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script>function initSearch() {
   var isXML = true;
@@ -401,4 +410,52 @@ if (Array.isArray(assistSearchList)) {
       extSearch(name);
     }, false);
   });
-}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script></body></html>
+}</script><script type="text/x-mathjax-config">var mathjaxMhchem = '';
+var mathJaxTex = {
+  equationNumbers: {
+    autoNumber: 'AMS'
+  }
+};
+
+if (true) {
+  mathjaxMhchem = 'https://cdn.jsdelivr.net/npm/mathjax-mhchem@3.3.2/mhchem.min.js';
+  MathJax.Ajax.config.path['mhchem'] = mathjaxMhchem;
+
+  mathJaxTex.extensions = [mathjaxMhchem];
+} else {
+  mathJaxTex.extensions = ['AMSmath.js','AMSsymbols.js'];
+}
+
+MathJax.Hub.Config({
+  menuSettings: {
+    zoom: 'None'
+  },
+  showMathMenu: false,
+  jax: ['input/TeX','output/CommonHTML'],
+  extensions: ['tex2jax.js'],
+  TeX: mathJaxTex,
+  tex2jax: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+});
+
+MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+  MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+    if (data.display) {
+      var next = data.script.nextSibling;
+      while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling; }
+      if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next); }
+    }
+  });
+});
+
+MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i = 0; i < all.length; i++) {
+    document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script></body></html>
